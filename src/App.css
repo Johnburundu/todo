@@ -1,38 +1,256 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #2F253E;
+  height: 100%;
+  margin: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
+  /* Центрирует по вертикали */
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* Центрирует по горизонтали */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.App-content {
+  color: #000;
+  display: flex;
+  /* Включает Flexbox для контейнера */
+  flex-direction: column;
+  /* Стакает дочерние элементы вертикально */
+  align-items: left;
+  /* Центрирует содержимое по горизонтали */
+  justify-content: center;
+  /* Центрирует содержимое по вертикали */
+  padding: 20px;
+  /* Добавляет паддинг вокруг содержимого */
+  background-color: #ffffff;
+  /* Устанавливает фоновый цвет плашки */
+  border-radius: 10px;
+  /* Закругляет углы плашки */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Добавляет тень для плашки */
+  margin: 20px auto;
+  /* Отцентрирует контейнер на странице и добавляет верхний/нижний отступы */
+  width: 80%;
+  min-width: 600px;
+  max-width: 800px;
+  /* Максимальная ширина контейнера */
+  min-height: 600px;
+  justify-content: flex-start;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+input[type="checkbox"] {
+  margin-left: 10px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.pending {}
+
+ul {
+  list-style-type: none;
+  /* Убирает маркеры у всех элементов <ul> */
+  padding-inline-start: 0px;
+  margin-block-start: 32px;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  /* Занимает всю ширину родительского контейнера */
+  padding: 10px 0;
+  /* Добавляет немного вертикального паддинга для визуального разделения */
+}
+
+.left-content {
+  display: flex;
+  align-items: center;
+}
+
+.right-content {
+  display: flex;
+}
+
+.left-content.completed span {
+  text-decoration: line-through;
+}
+
+.left-content.pending span {
+  text-decoration: none;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+  /* Добавляет отступ справа от чекбокса */
+}
+
+.container {
+  display: flex;
+  /* Используем flexbox для выравнивания элементов в строку */
+  align-items: center;
+  /* Центрируем элементы по вертикали */
+}
+
+.input {
+  flex-grow: 1;
+  /* Позволяет input расти и занимать всё доступное пространство */
+  margin-right: 10px;
+  /* Добавляем отступ справа */
+  height: 32px;
+  /* Высота текстового поля */
+  padding: 0 10px;
+  /* Паддинги слева и справа */
+  border: 1px solid #cccccc;
+  /* Серая рамка */
+  border-radius: 4px;
+  /* Округление углов */
+  outline: none;
+  /* Убираем контур при фокусе */
+}
+
+.button {
+  flex-shrink: 0;
+  /* Предотвращает сжатие кнопки */
+  padding: 0 15px;
+  /* Паддинги по бокам для текста в кнопке */
+  height: 32px;
+  /* Высота кнопки */
+  background-color: #00aaff;
+  /* Голубой фоновый цвет */
+  color: white;
+  /* Белый цвет текста */
+  border: none;
+  /* Убираем границу */
+  border-radius: 4px;
+  /* Округление углов */
+  cursor: pointer;
+  /* Курсор в виде руки */
+  outline: none;
+  /* Убираем контур при фокусе */
+}
+
+.tabs button {
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  /* Убираем стандартный контур кнопок */
+  border-bottom: 2px solid transparent;
+  /* Прозрачное подчеркивание для всех кнопок */
+}
+
+.tabs button.active {
+  border-bottom: 2px solid #00aaff;
+  /* Синее подчеркивание для активной вкладки */
+  font-weight: 600;
+}
+
+.tabs {
+  margin-top: 16px;
+}
+
+.button:hover {
+  background-color: #0099dd;
+  /* Цвет фона кнопки при наведении */
+}
+
+.button:active {
+  background-color: #0088cc;
+  /* Цвет фона кнопки при нажатии */
+  transform: scale(0.98);
+  /* Немного уменьшаем кнопку при нажатии */
+}
+
+.input:focus {
+  border-color: #aaaaaa;
+  /* Цвет рамки при фокусе */
+}
+
+.task-button {
+  flex-shrink: 0;
+  padding: 0 10px;
+  height: 24px;
+  background-color: #00aaff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  outline: none;
+  margin-left: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+  /* Добавляем плавные переходы */
+}
+
+.task-button:hover {
+  background-color: #0099dd;
+  /* Светлее при наведении */
+}
+
+.task-button:active {
+  background-color: #0088cc;
+  /* Темнее при нажатии */
+  transform: scale(0.98);
+  /* Уменьшаем при нажатии для эффекта */
+}
+
+.task-button.delete {
+  background-color: #ff4444;
+  /* Красный фон для кнопки "Удалить" */
+}
+
+.task-button.delete:hover {
+  background-color: #cc3333;
+  /* Светлее красный при наведении */
+}
+
+.task-button.delete:active {
+  background-color: #bb2222;
+  /* Темнее красный при нажатии */
+  transform: scale(0.98);
+  /* Тот же эффект уменьшения */
+}
+
+.task-controls {
+  display: flex;
+  justify-content: space-around;
+  /* Равномерное распределение кнопок по горизонтали */
+  margin-top: 20px;
+  /* Отступ сверху для визуального разделения */
+  padding: 10px;
+  border-top: 1px solid #cccccc;
+  /* Граница для визуального разделения */
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  /* Используем всю высоту видимой части экрана */
+}
+
+.task-controls {
+  display: flex;
+  justify-content: flex-end;
+  /* Кнопки выравниваются по правому краю */
+  padding: 10px;
+}
+
+.task-list {
+  flex-grow: 1;
+  /* Растягивает блок на все доступное пространство */
+  overflow: auto;
+  /* Добавляет прокрутку, если контент превышает высоту блока */
+}
+
+.completed {
+  text-decoration: line-through;
 }
